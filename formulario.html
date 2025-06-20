@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Formulário</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <div class="form-container">
+    <form id="formulario" class="form-box" enctype="multipart/form-data">
+      <img src="prime.png" alt="Logo" class="logo" />
+      <h2 class="login-title">Formulário de Lançamento</h2>
+
+      <label for="cliente">Cliente</label>
+      <input type="text" id="cliente" name="cliente" required />
+
+      <label for="tipo">Tipo</label>
+      <select id="tipo" name="tipo" required>
+        <option value="">Selecione</option>
+        <option value="Despesa">Despesa</option>
+        <option value="Receita">Receita</option>
+      </select>
+
+      <label for="servico">Tipo de Serviço</label>
+      <select id="servico" name="servico" required>
+        <option value="">Selecione</option>
+        <option value="Consultoria">Consultoria</option>
+        <option value="Produto">Produto</option>
+        <option value="Outros">Outros</option>
+      </select>
+
+      <label for="observacao">Observação</label>
+      <textarea id="observacao" name="observacao" rows="3"></textarea>
+
+      <label for="valor">Valor</label>
+      <input type="number" id="valor" name="valor" step="0.01" placeholder="Ex: 199.90" required />
+
+
+      <label for="data_compra">Data da Compra</label>
+      <input type="date" id="data_compra" name="data_compra" required />
+
+      <label for="data_vencimento">Data de Vencimento</label>
+      <input type="date" id="data_vencimento" name="data_vencimento" required />
+
+      <label for="data_pagamento">Data de Pagamento</label>
+      <input type="date" id="data_pagamento" name="data_pagamento" />
+
+      <label for="comprovante">Anexar Comprovante (PDF, PNG, JPEG, JPG)</label>
+      <input type="file" id="comprovante" name="comprovante" accept=".pdf,.png,.jpg,.jpeg" />
+
+
+      <button type="submit">Enviar</button>
+      <p id="msg"></p>
+    </form>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
