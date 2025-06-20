@@ -42,7 +42,7 @@ async function login() {
 
 
 // ==========================
-// ENVIO DE FORMULÁRIO (SEM ANEXO)
+// ENVIO DE FORMULÁRIO (SEM ANEXO) via GET para evitar CORS
 // ==========================
 const formulario = document.getElementById("formulario");
 if (formulario) {
@@ -71,13 +71,8 @@ if (formulario) {
     };
 
     try {
-      const response = await fetch("https://script.google.com/macros/s/AKfycbxpvBVXZUlI9JuyHwK-g0SfhxJjoNu-T9IXWpZuopbZR82llX8eWsfVOJ7zwqHYP--D/exec", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify(payload)
-      });
+      const queryString = new URLSearchParams(payload).toString();
+      const response = await fetch("https://script.google.com/macros/s/AKfycbxpvBVXZUlI9JuyHwK-g0SfhxJjoNu-T9IXWpZuopbZR82llX8eWsfVOJ7zwqHYP--D/exec?" + queryString);
 
       const result = await response.text();
       msg.innerText = result;
@@ -91,10 +86,3 @@ if (formulario) {
     }
   });
 }
-
-
-
-
-
-// Removido qualquer função relacionada ao envio de formulário ou upload de arquivos
-// https://script.google.com/macros/s/AKfycbxpvBVXZUlI9JuyHwK-g0SfhxJjoNu-T9IXWpZuopbZR82llX8eWsfVOJ7zwqHYP--D/exec
